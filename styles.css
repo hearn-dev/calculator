@@ -1,0 +1,139 @@
+/* Universal */
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* Calculator */
+
+#calculator {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+    'display display display display'
+    'clear clear back divide'
+    'seven eight nine mult'
+    'four five six subt'
+    'one two three sum'
+    'dec zed equals equals';
+    margin: auto;
+    margin-top: 100px;
+    width: 500px;
+    height: 600px;
+    background-color: grey;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+#display {
+    grid-area: display;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 130px;
+    background-color: lightgrey;
+    border-radius: 15px;
+    padding: 10px;
+
+}
+#previous {
+    font-size: 1.5rem;
+    height: 30px;
+}
+
+#current {
+    font-size: 4rem;
+}
+
+#clear {
+    grid-area: clear;
+}
+
+#back {
+    grid-area: back;
+}
+
+/* Buttons */
+
+.button {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.operator, .undo, #equals{
+    background-color: #a9a9a9;
+}
+
+.button:hover {
+    background-color: #a1a1a1;
+    color: white;
+}
+
+#one {
+    grid-area: one;
+}
+
+#two {
+    grid-area: two;
+}
+
+#three {
+    grid-area: three;
+}
+
+#four {
+    grid-area: four;
+}
+
+#five {
+    grid-area: five;
+}
+
+#six {
+    grid-area: six;
+}
+
+#seven {
+    grid-area: seven;
+}
+
+#eight {
+    grid-area: eight;
+}
+#nine {
+    grid-area: nine;
+}
+#zero {
+    grid-area: zed;
+}
+
+#divide {
+    grid-area: divide;
+}
+
+#mult {
+    grid-area: mult;
+}
+
+#sub {
+    grid-area: subt;
+}
+#sum {
+    grid-area: sum;
+}
+
+#dec {
+    grid-area: dec;
+}
+
+#equals {
+    grid-area: equals; 
+}
