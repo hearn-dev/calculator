@@ -9,7 +9,7 @@ const calculator = () => {
 
     let currentOperand = "";
     let previousOperand = "";
-    let operation = null;
+    let operator = null;
 
 
     const handleButtons = () => {
@@ -18,7 +18,7 @@ const calculator = () => {
                 console.log(btn);
                 if (btn.textContent === '.' && currentOperand.includes('.')) return;
                 else if (isNaN(currentOperand) && btn.textContent != '.') {
-                    previousOperand += ` ${currentOperand}`;
+                    operator = currentOperand;
                     currentOperand = '';
                 }
                 currentOperand += btn.textContent.toString();
@@ -48,6 +48,17 @@ const calculator = () => {
 
         back.addEventListener("click", () => {
             currentOperand = currentOperand.slice(0, -1);
+            updateDisplay();
+        })
+
+        equal.addEventListener("click", () => {
+            currentOperand = parseInt(current.textContent);
+            previousOperand = parseInt(previous.textContent);
+            let ans = operate(previousOperand, currentOperand, operator);
+            console.log(previousOperand, currentOperand, operator)
+            console.log(operate(6, 12, '+'));
+            previousOperand = previousOperand + ' ' + operator + ' ' + currentOperand;
+            currentOperand = ans.toFixed(2);
             updateDisplay();
         })
     }
@@ -84,7 +95,7 @@ const operate = (x, y, operator) => {
         return add(x, y);
     } else if (operator === '-') {
         return subtract(x, y);
-    } else if (operator === '*') {
+    } else if (operator === 'x') {
         return multiply(x, y);
     } else if (operator === '/') {
         return divide(x, y);
